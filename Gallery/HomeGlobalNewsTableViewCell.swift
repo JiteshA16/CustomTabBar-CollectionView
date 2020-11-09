@@ -9,7 +9,7 @@ class HomeGlobalNewsTableViewCell: UITableViewCell {
     
     let count = 20
     
-    private let collectionMargin:CGFloat = 60
+    private let collectionMargin:CGFloat = UIScreen.main.bounds.size.width <= 320 ? 40.0 : 60.0
     private let itemSpacing:CGFloat = 0
     private var itemWidth:CGFloat = 0
     private let transformationValue = CGAffineTransform(scaleX: 0.85, y: 0.85)
