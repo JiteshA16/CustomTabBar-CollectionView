@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E94E7AE725551590008CD60A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E7AE625551590008CD60A /* AppDelegate.swift */; };
-		E94E7AE925551590008CD60A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E7AE825551590008CD60A /* SceneDelegate.swift */; };
 		E94E7AEB25551590008CD60A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E7AEA25551590008CD60A /* ViewController.swift */; };
 		E94E7AEE25551590008CD60A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E94E7AEC25551590008CD60A /* Main.storyboard */; };
 		E94E7AF025551591008CD60A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E94E7AEF25551591008CD60A /* Assets.xcassets */; };
@@ -45,7 +44,6 @@
 /* Begin PBXFileReference section */
 		E94E7AE325551590008CD60A /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E94E7AE625551590008CD60A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E94E7AE825551590008CD60A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E94E7AEA25551590008CD60A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E94E7AED25551590008CD60A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E94E7AEF25551591008CD60A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				E94E7AE625551590008CD60A /* AppDelegate.swift */,
-				E94E7AE825551590008CD60A /* SceneDelegate.swift */,
 				E94E7AEA25551590008CD60A /* ViewController.swift */,
 				E94E7AEC25551590008CD60A /* Main.storyboard */,
 				E94E7AEF25551591008CD60A /* Assets.xcassets */,
@@ -298,7 +295,6 @@
 				E94E7AE725551590008CD60A /* AppDelegate.swift in Sources */,
 				F2DEFBA32555653B001E3279 /* SHCircleBar.swift in Sources */,
 				F2DEFBA42555653B001E3279 /* SHCircleBarController.swift in Sources */,
-				E94E7AE925551590008CD60A /* SceneDelegate.swift in Sources */,
 				E94E7B1D255515BD008CD60A /* HomeGlobalNewsCollectionViewCell.swift in Sources */,
 				E94E7B20255515BD008CD60A /* HomeGlobalNewsTableViewCell.swift in Sources */,
 			);
@@ -480,7 +476,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 72L8M8UMF4;
 				INFOPLIST_FILE = Gallery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,7 +498,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 72L8M8UMF4;
 				INFOPLIST_FILE = Gallery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

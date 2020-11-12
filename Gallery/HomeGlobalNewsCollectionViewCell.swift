@@ -10,6 +10,11 @@ class HomeGlobalNewsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+    }
+    
+    override func draw(_ rect: CGRect) {
+        
     }
 
 }

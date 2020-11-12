@@ -9,10 +9,10 @@ class HomeGlobalNewsTableViewCell: UITableViewCell {
     
     let count = 20
     
-    private let collectionMargin:CGFloat = UIScreen.main.bounds.size.width <= 320 ? 40.0 : 60.0
+    private let collectionMargin:CGFloat = UIScreen.main.bounds.size.width <= 320 ? 30.0 : 40.0
     private let itemSpacing:CGFloat = 0
     private var itemWidth:CGFloat = 0
-    private let transformationValue = CGAffineTransform(scaleX: 0.85, y: 0.85)
+    private let transformationValue = CGAffineTransform(scaleX: 0.85, y: 0.8)
     private let animationDuration = 0.2
     private var isfirstTimeTransform = false
     
@@ -48,10 +48,7 @@ extension HomeGlobalNewsTableViewCell : UICollectionViewDataSource{
         }
         return cell
     }
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        pageControl.currentPage = indexPath.item
-//    }
-    
+
 }
 
  extension HomeGlobalNewsTableViewCell: UIScrollViewDelegate {
@@ -114,6 +111,7 @@ extension HomeGlobalNewsTableViewCell : UICollectionViewDataSource{
  extension HomeGlobalNewsTableViewCell: UICollectionViewDelegateFlowLayout {
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          itemWidth =  UIScreen.main.bounds.width - collectionMargin * 2.0
+        print(itemWidth)
          return CGSize(width: itemWidth, height: collectionView.frame.size.height)
      }
      

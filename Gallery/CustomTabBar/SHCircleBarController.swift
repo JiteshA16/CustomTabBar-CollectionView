@@ -13,6 +13,8 @@ class SHCircleBarController: UITabBarController {
     fileprivate var shouldSelectOnTabBar = true
     private var circleView : UIView!
     private var circleImageView: UIImageView!
+    private let circleLayer = CAShapeLayer()
+    private var previousIndex = 0
     open override var selectedViewController: UIViewController? {
         willSet {
             guard shouldSelectOnTabBar, let newValue = newValue else {
@@ -26,6 +28,7 @@ class SHCircleBarController: UITabBarController {
     
     open override var selectedIndex: Int {
         willSet {
+            self.previousIndex = selectedIndex
             guard shouldSelectOnTabBar else {
                 shouldSelectOnTabBar = true
                 return
@@ -110,10 +113,13 @@ class SHCircleBarController: UITabBarController {
         if  idx != selectedIndex, let controller = viewControllers?[idx] {
             shouldSelectOnTabBar = false
             selectedIndex = idx
+            /*
             let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items!.count)
             UIView.animate(withDuration: 0.3) {
                 self.circleView.frame = CGRect(x: (tabWidth * CGFloat(idx) + tabWidth / 2 - 30), y: self.tabBar.frame.origin.y - 20, width: 60, height: 60)
             }
+            */
+            animateCirclePath(path: circlePath(selectedIndex: selectedIndex))
             UIView.animate(withDuration: 0.15, animations: {
                 self.circleImageView.alpha = 0
             }) { (_) in
@@ -141,6 +147,36 @@ class SHCircleBarController: UITabBarController {
         shadowLayer.shadowOpacity = 0.8
         shadowLayer.backgroundColor = UIColor.clear.cgColor
         return shadowLayer
+    }
+    
+    private func circlePath(selectedIndex: Int) -> CGPath {
+        let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items!.count)
+
+        let fromX = (tabWidth * CGFloat(previousIndex) + tabWidth / 2)
+        let toX = (tabWidth * CGFloat(selectedIndex) + tabWidth / 2)
+       
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: fromX, y: self.tabBar.frame.origin.y))
+        
+        path.addQuadCurve(to: CGPoint(x: toX, y: self.tabBar.frame.origin.y),
+                          controlPoint: CGPoint(x: (fromX + toX) / 2, y: UIScreen.main.bounds.size.height - barHeight/2 + 25.0))
+        return path.cgPath
+    }
+    
+    
+    private func animateCirclePath(path: CGPath) {
+        let animation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
+        animation.path = path
+        animation.duration = 0.2
+        animation.fillMode = .both
+        animation.isRemovedOnCompletion = false
+        animation.timingFunctions = [CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)]
+        circleView.layer.add(animation, forKey: nil)
+        
+        circleLayer.path = path
+        circleLayer.strokeColor = UIColor.clear.cgColor
+        circleLayer.fillColor = UIColor.clear.cgColor
+        self.view.layer.addSublayer(circleLayer)
     }
     
 }
